@@ -19,7 +19,7 @@ Vue 3 + Element Plus
     v
 FastAPI
   ├ 系统配置：schema 驱动前端表单，.env 冷启动 -> 数据库热更新，密钥用 ****** 脱敏
-  ├ 鉴权：登录/注册（首个用户自动成为管理员），用户管理保护最后一个管理员
+  ├ 鉴权：登录/注册（注册账号默认普通用户，管理员在用户管理页提权），用户管理保护最后一个管理员
   ├ 底图代理：服务端注入 token，错误码翻译（天地图 30102x / 星图 124·128），连续 3 次失败切 OSM
   ├ ReAct Agent：create_react_agent + 4 个工具，contextvars sink 把地块/片段/轨迹推回前端上图
   └ LangGraph 五节点工作流
@@ -59,7 +59,7 @@ cp .env.example .env                                     # 填写 LLM_API_KEY / 
 ```
 
 首次启动建表 → 用 `.env` 播种「系统配置」→ 探测 PostGIS（可用则建 `plot` / `extract_task` + 空间索引，不可用则用本地引擎）。
-默认管理员 `admin / admin123`，第一个注册用户自动成为管理员。
+默认管理员 `admin / admin123`（启动时按 `.env` 播种）；自助注册的账号一律是普通用户，需要管理员在「用户管理」里改角色。
 
 ### 前端
 
@@ -143,6 +143,7 @@ vue/
 
 ## 领域口径
 
-地类采用七大类：耕地、园地、林地、草地、商服、住宅、公共管理与公共服务。面积默认亩制（1 亩 ≈ 666.67 m²），
+地类采用七大类（`app/utils/units.py` 的 `LAND_TYPES`）：耕地、园地、林地、草地、建设用地、水域、未利用地。
+面积默认亩制（1 亩 ≈ 666.67 m²），需求里的「公顷 / 平方米 / 平方公里」在 `parse_intent` 阶段统一换算成亩；
 提取时以 `ST_Area(...::geography)` 计算真实地表面积，`ST_SimplifyPreserveTopology` 控制节点量，
 碎片由 `EXTRACT_MIN_AREA_MU` 过滤。具体认定规则可写入知识库，由 `retrieve_knowledge` 节点召回后参与结论。

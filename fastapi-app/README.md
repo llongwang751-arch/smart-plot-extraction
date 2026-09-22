@@ -16,7 +16,8 @@ copy .env.example .env                         # 然后按需填写模型 / 底�
 首次启动会：建表（`sys_config` / `sys_user` / `kb_document` / `chat_*`）→ 用 `.env` 默认值播种「系统配置」→
 探测 PostGIS，可用则建 `plot` / `extract_task` + 空间索引 + `CREATE EXTENSION postgis/vector`，不可用则降级到本地引擎。
 
-默认管理员 `admin / admin123`，第一个注册用户自动成为管理员，之后注册为普通用户。
+默认管理员 `admin / admin123`（启动时按 `.env` 的 `ADMIN_USERNAME / ADMIN_PASSWORD` 播种）；自助注册的账号一律是普通用户，
+需要管理员在「用户管理」里改角色。
 
 ### 不装 PostgreSQL 也能跑
 

@@ -43,7 +43,7 @@
         </el-tab-pane>
       </el-tabs>
       <div class="tip">
-        登录不区分角色，由后端按账号判定；首个注册用户为管理员，之后注册为普通用户。<br />
+        登录不区分角色，由后端按账号判定；自助注册的一律是普通用户，管理员由「用户管理」指定。<br />
         内置管理员：<span class="mono">admin / admin123</span>
       </div>
     </div>
