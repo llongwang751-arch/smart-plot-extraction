@@ -18,7 +18,10 @@ http.interceptors.response.use(
     const detail = err.response?.data?.detail || err.message || '请求失败'
     if (status === 401) {
       clearAuth()
-      if (!location.hash.startsWith('#/login')) {
+      if (location.hash.startsWith('#/login')) {
+        // 登录页上的 401 是凭证错误，不是会话过期，必须把后端原文显示出来
+        ElMessage.error(String(detail).slice(0, 240))
+      } else {
         ElMessage.warning('登录状态已失效，请重新登录')
         location.hash = '#/login'
       }
