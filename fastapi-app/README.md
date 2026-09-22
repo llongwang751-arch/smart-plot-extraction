@@ -38,7 +38,7 @@ app/
   workflows/ intent.py locate.py graph.py agent.py sink.py
   api/     auth users config plots knowledge extract records maps chat dashboard
 data/kb/   示例领域文档（地类认定与面积口径说明、操作手册与业务问答），在知识库页面上传即可
-scripts/   api_check.py（40 项接口自检）
+scripts/   api_check.py（43 项接口自检）
 ```
 
 ## 接口
