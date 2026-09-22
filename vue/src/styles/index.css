@@ -1,0 +1,156 @@
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+  background: #f2f4f7;
+  color: #1f2329;
+  font-size: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  padding: 16px;
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.page-title h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.page-title .sub {
+  color: #8a919f;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.card + .card {
+  margin-top: 12px;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.muted {
+  color: #8a919f;
+}
+
+.mono {
+  font-family: Consolas, 'Courier New', monospace;
+}
+
+.kv {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+
+.kv div {
+  font-size: 12px;
+}
+
+.kv b {
+  font-size: 17px;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Markdown 渲染 */
+.md {
+  line-height: 1.75;
+  word-break: break-word;
+}
+
+.md h1,
+.md h2,
+.md h3,
+.md h4 {
+  margin: 12px 0 6px;
+  font-weight: 600;
+}
+
+.md h1 { font-size: 18px; }
+.md h2 { font-size: 16px; }
+.md h3 { font-size: 15px; }
+.md h4 { font-size: 14px; }
+
+.md p {
+  margin: 6px 0;
+}
+
+.md code {
+  background: #f0f2f5;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: Consolas, monospace;
+  font-size: 12px;
+}
+
+.md blockquote {
+  margin: 8px 0;
+  padding: 6px 10px;
+  border-left: 3px solid #b7c4e5;
+  background: #f7f9fc;
+  color: #57606f;
+}
+
+.md ul,
+.md ol {
+  margin: 6px 0;
+  padding-left: 22px;
+}
+
+.md table {
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-size: 13px;
+  width: 100%;
+}
+
+.md th,
+.md td {
+  border: 1px solid #e4e7ed;
+  padding: 5px 8px;
+  text-align: left;
+}
+
+.md th {
+  background: #f5f7fa;
+}
+
+.leaflet-container {
+  background: #dfe6ee;
+  font: inherit;
+}
+
+.leaflet-tooltip.plot-tip {
+  font-size: 12px;
+  border-radius: 5px;
+}
